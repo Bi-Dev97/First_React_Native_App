@@ -20,6 +20,13 @@ export default function App() {
     setCourseGoals((currentCourseGoals) => [
       ...currentCourseGoals,
       { text: enteredGoalText, id: Math.random().toString() },
+      /**Here we add a new element as object
+      because we're using react native builds-in FlatList component to render the list of goals.
+      FlatList takes a prop called renderItem which takes as value a callback and this callback received as parameter 
+      itemData  in my case which is provided by the FlatList component and this parameter will
+      contain properties, and the specially item property that holds all data(here text and id)
+       of each element that the FlatList will render in the list
+       */
     ]);
     endAddGoalHandler();
   }
@@ -45,7 +52,10 @@ export default function App() {
           onCancel={endAddGoalHandler}
         />
         <View style={styles.goalsContainer}>
-          <FlatList
+          <FlatList /* Here we use FlatList instead 
+          of ScrollView because the first will improve
+          performance in rendering the list of element
+          if there are thousands to render*/
             data={courseGoals}
             renderItem={(itemData) => {
               return (

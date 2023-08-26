@@ -49,7 +49,15 @@ export default GoalInput;
 
 const styles = StyleSheet.create({
   inputContainer: {
-    flex: 1,
+    flex: 1, /*With this property which is applied only 
+    on containers make them take the available space as 
+    needed and if there are more than one container the 
+    available space will be split for these sibling 
+    containers else the container will fill the entire 
+    screen because it is alone.To share the available space
+    to each containers we make the sum of each flex property
+    and each container will occupy the flex value attached to it
+    based on the total space available*/
     justifyContent: "center",
     alignItems: "center",
     padding: 16,
@@ -65,7 +73,9 @@ const styles = StyleSheet.create({
     borderColor: "#e4d0ff",
     backgroundColor: "#e4d0ff",
     color: "#120438",
-    borderRadius: 6,
+    borderRadius: 6, /*This will work on both platforms contrary
+    to pass it on a Text element because here we pass it on a 
+    TextInput element*/
     width: "100%",
     padding: 16,
   },
